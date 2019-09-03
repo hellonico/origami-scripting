@@ -1,0 +1,1 @@
+     The first invokation with a script may be a bit slow, as inlein has to retrieve and start the inlein daemon. You can force download and daemon startup by calling inlein --start-daemon, to ensure faster startup times on subsequent runs.
