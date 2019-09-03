@@ -13,4 +13,4 @@
   (gaussian-blur! (new-size 1 1) 1 1)
   (canny! 100.0 220.0 3 true)
   (bitwise-not!)
-  (u/show))
+  (imwrite "cartoon.png"))
