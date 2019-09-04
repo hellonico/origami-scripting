@@ -1,5 +1,5 @@
 #!/usr/bin/env inlein
-'{:dependencies [[origami/origami "4.1.1-4-SNAPSHOT"]]}
+'{:dependencies [[origami/origami "4.1.1-4"]]}
 
 (require '[opencv4.core :refer :all]) 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[org.clojure/clojure "1.8.0"][origami/origami "4.1.1-4-SNAPSHOT"]]}
+'{:dependencies [[org.clojure/clojure "1.8.0"][origami/origami "4.1.1-4"]]}
 
 (ns opencv4.webcam
   (:require
