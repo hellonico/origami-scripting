@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[origami-dnn "0.1.0"]]}
+'{:dependencies [[origami-dnn "0.1.2"]]}
 
 (require '[origami-dnn.net.mobilenet :refer [find-objects]]
           '[origami-dnn.core :refer [read-net-from-uri]]
