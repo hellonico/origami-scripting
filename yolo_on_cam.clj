@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[origami-dnn "0.1.1-SNAPSHOT"][origami "4.1.1-5-SNAPSHOT"]]}
+'{:dependencies [[origami-dnn "0.1.2"]]}
 
 (ns demo.yolo.cam
   (:require   [origami-dnn.net.yolo :as yolo]
