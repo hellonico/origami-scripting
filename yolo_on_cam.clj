@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[origami-dnn "0.1.2"]]}
+'{:dependencies [[origami-dnn "0.1.3"]]}
 
 (ns demo.yolo.cam
   (:require   [origami-dnn.net.yolo :as yolo]
@@ -13,6 +13,6 @@
 			  {:frame {:fps true}}
 			   (fn [buffer]
 			     (-> buffer 
-						     (u/resize-by 0.5)
+						     ; (u/resize-by 0.5)
 						     (yolo/find-objects net) 
 						     (d/blue-boxes! labels) ))))
