@@ -1,13 +1,13 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[origami-dnn "0.1.5"]]}
+'{:dependencies [[origami-dnn "0.1.7"]]}
 
 (ns dnn.picture
  (:require 
     [origami-dnn.net.yolo :as yolo]
     [origami-dnn.draw :as d]
     [opencv4.core :refer [put-text! new-scalar FONT_HERSHEY_PLAIN rectangle new-point min-max-loc new-size new-scalar imread imwrite]]
-    [origami-dnn.core :as origami-dnn]))
+    [opencv4.dnn.core :as origami-dnn]))
 
 (defn blue-boxes! [result labels]
   (let [img (first result) detected (second result)]

@@ -7,6 +7,9 @@
 
 (require '[ring.adapter.jetty :refer [run-jetty]])
 (require '[ring.middleware.json :refer [wrap-json-response]])
+(use 'ring.middleware.resource
+     'ring.middleware.content-type
+     'ring.middleware.not-modified)
 
 (defn handler [request]
   {:status 200
@@ -14,6 +17,10 @@
    :body {:time (java.util.Date.)}})
 
 (def app
-  (wrap-json-response handler))
+  (-> handler
+      (wrap-json-response)
+      (wrap-resource (or (first *command-line-args*) "."))
+      (wrap-content-type)
+      (wrap-not-modified)))
 
 (run-jetty  app {:port 3000})

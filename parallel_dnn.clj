@@ -1,5 +1,5 @@
 #!/usr/bin/env inlein
-'{:dependencies [[origami-dnn "0.1.5-SNAPSHOT"]]}
+'{:dependencies [[origami-dnn "0.1.7"]]}
 
 ;
 ; This scripts runs a DNN on all pictures in a folder
