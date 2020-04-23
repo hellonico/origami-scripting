@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 '{:jvm-opts ["-XX:+TieredCompilation" "-XX:TieredStopAtLevel=1" "-Xverify:none"]
-   :dependencies [[origami/origami "4.2.0-1"]]}
+   :dependencies [[[origami/origami "4.3.0-4"]]]}
 
 (ns opencv4.video.twocameras
   (:require
