@@ -17,7 +17,9 @@
 (let [pic (cv/imread (.getPath (first files))) _size (cv/new-size (.width pic ) (.height pic) )]
 (.open w output-file  fourcc 12 _size))
 (doseq [f files]
-	(.write w (cv/imread (.getPath f))))
+(let [img (cv/imread (.getPath f))]
+	(.write w img)
+	(.release img)))
 (.release w)
 
 (println "Video Finished > " (java.util.Date.))

@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[org.clojure/clojure "1.10.0"][[origami/origami "4.3.0-4"]]]}
+'{:dependencies [[org.clojure/clojure "1.10.0"][origami/origami "4.3.0-4"]]}
 (require '[opencv4.utils :as u])
 (require '[opencv4.core :refer [imwrite] ])
 
