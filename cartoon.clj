@@ -5,12 +5,12 @@
 (require '[opencv4.core :refer :all])
 (require '[opencv4.utils :as u])
 
-(->
-  (first *command-line-args*) 
-  (u/mat-from-url)
-  (u/resize-by 0.3)
+(def in (first *command-line-args*) )
+(println in)
+(-> in
+  imread
   (cvt-color! COLOR_BGR2GRAY)
   (gaussian-blur! (new-size 1 1) 1 1)
   (canny! 100.0 220.0 3 true)
   (bitwise-not!)
-  (imwrite "cartoon.png"))
+  (imwrite (str "cartoon_" in)))
