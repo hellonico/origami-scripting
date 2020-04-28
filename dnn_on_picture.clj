@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[origami-dnn "0.1.7"]]}
+'{:dependencies [[origami-dnn "0.1.8"]]}
 
 (ns dnn.picture
  (:require 

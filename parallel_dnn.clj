@@ -1,5 +1,5 @@
 #!/usr/bin/env inlein
-'{:dependencies [[origami-dnn "0.1.7"]]}
+'{:dependencies [[origami-dnn "0.1.8"]]}
 
 ;
 ; This scripts runs a DNN on all pictures in a folder
@@ -10,15 +10,15 @@
    '[opencv4.process :as p]
    '[opencv4.core :refer :all]
    '[clojure.java.io :as io]
-   '[origami-dnn.core :as origami-dnn])
+   '[opencv4.dnn.core :as dnn])
 
 ; make sure the network is downloaded 
 ; before the parallel processing
 (def network "networks.yolo:yolov2-tiny:1.0.0")
-(origami-dnn/read-net-from-repo network)
+(dnn/read-net-from-repo network)
 
 (defn my-dnn-fn [ out input ]
-(let [[net opts labels] (origami-dnn/read-net-from-repo network)
+(let [[net opts labels] (dnn/read-net-from-repo network)
       output (str out "/net_" (.getName (io/as-file input))) ]
     (-> input
         (imread)

@@ -1,13 +1,13 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[origami-dnn "0.1.5"]]}
+'{:dependencies [[origami-dnn "0.1.8"]]}
 
 (require '[origami-dnn.net.mobilenet :refer [find-objects]]
-          '[origami-dnn.core :refer [read-net-from-uri]]
+          '[opencv4.dnn.core :as dnn]
           '[origami-dnn.draw :as d]
           '[opencv4.utils :refer [simple-cam-window]])
 
-(let [ [net opts labels] (read-net-from-uri "http://repository.hellonico.info/repository/hellonico/origami-dnn-networks/mobilenet/1.0.0/mobilenet-1.0.0.zip") ]
+(let [ [net opts labels] (dnn/read-net-from-repo "networks.tensorflow:tf-ssdmobilenet:1.0.0") ]
   (simple-cam-window
   {:frame {:fps true}}
    (fn [buffer]

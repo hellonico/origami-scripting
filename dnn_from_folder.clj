@@ -1,13 +1,19 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[origami-dnn "0.1.5"]]}
+'{:dependencies [[org.clojure/clojure "1.10.0"][environ "1.1.0"][origami-dnn "0.1.8"]]}
 
 (require '[origami-dnn.net.mobilenet :refer [find-objects]]
-          '[origami-dnn.core :refer [read-net-from-folder]]
+          '[opencv4.dnn.core :as dnn]
           '[origami-dnn.draw :as d]
+          '[environ.core :refer [env]]
           '[opencv4.utils :refer [simple-cam-window]])
 
-(let [ [net opts labels] (read-net-from-folder"squeezenet_2018_04_27") ]
+; make sure the network is downloaded before running
+; (def network "networks.tensorflow:tf-ssdmobilenet:1.0.0")
+(def network "networks.caffe:mobilenet:1.0.0")
+(dnn/read-net-from-repo network)
+
+(let [ [net opts labels] (dnn/read-net-from-folder (str (env :user-home) "/.origami/mobilenet-1.0.0.zip")) ]
   (simple-cam-window
   {:frame {:fps true}}
    (fn [buffer]
