@@ -9,7 +9,7 @@
 
 (let [ [net opts labels] (dnn/read-net-from-repo "networks.tensorflow:tf-ssdmobilenet:1.0.0") ]
   (simple-cam-window
-  {:frame {:fps true}}
+  ; {:frame {:fps true}}
    (fn [buffer]
      (-> buffer 
       (find-objects net opts) 

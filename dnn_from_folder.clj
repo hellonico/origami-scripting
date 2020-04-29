@@ -15,7 +15,7 @@
 
 (let [ [net opts labels] (dnn/read-net-from-folder (str (env :user-home) "/.origami/mobilenet-1.0.0.zip")) ]
   (simple-cam-window
-  {:frame {:fps true}}
+  ;{:frame {:fps true}}
    (fn [buffer]
      (-> buffer 
       (find-objects net opts) 
