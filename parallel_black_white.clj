@@ -1,5 +1,5 @@
 #!/usr/bin/env inlein
-'{:dependencies [[origami/origami "4.3.0-4"]]}
+'{:dependencies [[origami/origami "4.3.0-6"]]}
 
 ;
 ; This scripts converts all pictures of a folder to black and white

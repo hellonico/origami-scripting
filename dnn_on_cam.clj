@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[origami-dnn "0.1.8"]]}
+'{:dependencies [[origami-dnn "0.1.9"]]}
 
 (require '[origami-dnn.net.mobilenet :refer [find-objects]]
           '[opencv4.dnn.core :as dnn]

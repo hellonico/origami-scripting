@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[org.clojure/clojure "1.10.0"][progrock "0.1.2"][origami/origami "4.3.0-4"]]}
+'{:dependencies [[org.clojure/clojure "1.10.0"][progrock "0.1.2"][origami/origami "4.3.0-6"]]}
 (require '[opencv4.core :as cv ])
 (require '[opencv4.video :as cvv ])
 (require '[progrock.core :as pr])
