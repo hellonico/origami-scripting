@@ -1,43 +1,13 @@
 #!/usr/bin/env inlein
-'{:dependencies [[origami/origami "4.3.0-6"]]}
+'{:dependencies [[origami/origami "4.3.0-7"][org.clojure/clojure "1.10.0"][me.raynes/fs "1.4.6"]]}
 
 (require '[opencv4.core :refer :all]
          '[opencv4.process :as p]
          '[clojure.string :as str]
          '[clojure.java.io :as io])
 
-(defn cartoon-1
-  [buffer]
-  (-> buffer
-    (cvt-color! COLOR_BGR2GRAY)
-    (bilateral-filter! 10 250 50)
-    (adaptive-threshold! 255 ADAPTIVE_THRESH_MEAN_C THRESH_BINARY 9 3)
-    (cvt-color! COLOR_GRAY2BGR)))
-
-(defn cartoon-2
-   [buffer]
-   (-> buffer
-     (cvt-color! COLOR_BGR2GRAY)
-     (bilateral-filter! 9 17 7)
-     (adaptive-threshold! 255 ADAPTIVE_THRESH_MEAN_C THRESH_BINARY 9 3)
-     (cvt-color! COLOR_GRAY2BGR)))
-
-(defn cartoon-3 [in]
-  (-> in
-  (cvt-color! COLOR_BGR2GRAY)
-  (gaussian-blur! (new-size 3 3) 1 1)
-  (canny! 100.0 250.0 3 true)
-  (bitwise-not!)
-  (cvt-color! COLOR_GRAY2BGR)))
-
-
-(defn cartoon-4 [in]
-  (-> in
-  (cvt-color! COLOR_BGR2GRAY)
-  (gaussian-blur! (new-size 3 3) 1 1)
-  (canny! 50.0 150.0 3 true)
-  (bitwise-not!)
-  (cvt-color! COLOR_GRAY2BGR)))
+(load-file "_mycartoons.clj")
+(load-file "non-origami/_unzip.clj")
 
 (defn process [_fn ind out file]
     (println file)
@@ -46,10 +16,17 @@
         _fn
         (imwrite (str out "/cartoon" ind "_" (.getName (io/as-file file))))))
 
-(def in (or (first *command-line-args*) "."))
-(def out (or (second *command-line-args*) "out"))
 
-; (.start (Thread. (fn[] (p/sequential in out (partial process cartoon-1 1)))))
-(.start (Thread. (fn[] (p/sequential in out (partial process cartoon-2 2)))))
-; (.start (Thread. (fn[] (p/sequential in out (partial process cartoon-3 3)))))
-; (.start (Thread. (fn[] (p/sequential in out (partial process cartoon-4 4)))))
+(def in (or (first *command-line-args*) "."))
+
+(let [
+    iin (if (clojure.string/includes? in "zip") (unzip in) in)
+    out (or (second *command-line-args*) iin)
+    ts [
+        (Thread. (fn[] (p/sequential iin out (partial process cartoon-1 1))))
+        (Thread. (fn[] (p/sequential iin out (partial process cartoon-2 2))))
+        (Thread. (fn[] (p/sequential iin out (partial process cartoon-3 3))))
+        (Thread. (fn[] (p/sequential iin out (partial process cartoon-4 4))))
+    ]
+]
+ (doseq [t ts] (.start t)) (doseq [t ts] (.join t)))

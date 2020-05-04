@@ -2,7 +2,7 @@
 
 '{:dependencies [
   [org.clojure/clojure "1.10.0"]
-  [origami/origami "4.3.0-6"]
+  [origami/origami "4.3.0-7"]
   [origami/filters "1.11"]]}
 
 (ns opencv4.webcam
