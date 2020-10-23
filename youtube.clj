@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[org.clojure/clojure "1.8.0"][origami/youtube "1.0.0"][origami/origami "4.3.0-7"]]}
+'{:dependencies [[org.clojure/clojure "1.8.0"][origami/youtube "1.0.0"][origami/origami "4.5.0"]]}
 
 (ns opencv4.webcam
   (:require
@@ -13,4 +13,5 @@
 ; (Downloader/debug)
 
 (Class/forName "origami.video.YouTubeHandler")
-(u/simple-cam-window {:video {:device (str "youtube://" (or (first *command-line-args*)  "6t24nX_sak8")) }} identity)
+(u/simple-cam-window 
+ {:video {:device (str "youtube://" (or (first *command-line-args*)  "6t24nX_sak8")) }} identity)

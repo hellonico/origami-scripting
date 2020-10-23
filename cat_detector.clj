@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[org.clojure/clojure "1.8.0"][origami/origami "4.3.0-7"]]}
+'{:dependencies [[org.clojure/clojure "1.8.0"][origami/origami "4.5.0"]]}
 
 (ns cat-detector
   (:require
