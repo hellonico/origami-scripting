@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[progrock "0.1.2"][org.clojure/clojure "1.8.0"][origami/sources "1.0.2"][origami/origami "4.3.0-8"]]}
+'{:dependencies [[progrock "0.1.2"][org.clojure/clojure "1.8.0"][origami/sources "1.0.2"][origami/origami "4.9.0-0"]]}
 
 (require '[opencv4.core :refer :all])
 (require '[opencv4.utils :as u])

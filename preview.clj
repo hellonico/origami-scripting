@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[origami "4.7.0-18"]]}
+'{:dependencies [[origami "4.9.0-0"]]}
 
 (require '[opencv4.utils :as u]) 
 
