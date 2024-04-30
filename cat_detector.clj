@@ -1,12 +1,13 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[org.clojure/clojure "1.8.0"][origami/origami "4.5.1-3"]]}
+'{:dependencies [[origami/origami "4.7.0-18"]]}
 
 (ns cat-detector
   (:require
     [opencv4.colors.rgb :as rgb]
     [opencv4.core :refer :all]))
 
+; nowadays we can use the origami fetcher/downloader
 (def detector
   (->
    "haarcascade_frontalcatface.xml"

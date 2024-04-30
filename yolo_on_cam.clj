@@ -1,6 +1,6 @@
 #!/usr/bin/env inlein
 
-'{:dependencies [[org.clojure/clojure "1.10.0"][origami-dnn "0.1.9"]]}
+'{:dependencies [[origami-dnn "0.1.19"]]}
 
 (require   '[origami-dnn.net.yolo :as yolo]
 		   '[origami-dnn.draw :as d]

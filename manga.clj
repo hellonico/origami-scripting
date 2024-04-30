@@ -1,5 +1,5 @@
 #!/usr/bin/env inlein
-'{:dependencies [[org.clojure/clojure "1.8.0"][origami/origami "4.5.1-3"]]}
+'{:dependencies [[org.clojure/clojure "1.8.0"][origami/origami "4.7.0-18"]]}
 
 (require '[opencv4.core :refer :all])
 (require '[opencv4.utils :as u])

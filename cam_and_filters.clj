@@ -2,8 +2,8 @@
 
 '{:dependencies [
   [org.clojure/clojure "1.10.0"]
-  [origami/origami "4.5.1-3"]
-  [origami/filters "1.11"]]}
+  [origami/origami "4.7.0-18"]
+  [origami/filters "1.42"]]}
 
 (ns opencv4.webcam
   (:require
@@ -17,7 +17,6 @@
 ;   (java-filter origami.filters.Cartoon))
 (def f 
   (java-filter origami.filters.SunGlasses$Red))
-(println f)
 
 (u/simple-cam-window 
     (comp (java-filter origami.filters.FPS) f ))
